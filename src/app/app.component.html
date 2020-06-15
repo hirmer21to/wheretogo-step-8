@@ -1,0 +1,17 @@
+<div style="text-align:center">
+  <h1 class="ui header" style="margin: 30px">
+    Welcome to {{ title }}!
+  </h1>
+  <div class="ui three item menu">
+    <a class="item" routerLink="/where-to-go" routerLinkActive="active">
+      Home
+    </a>
+    <a class="item" routerLink="/timetable" routerLinkActive="active">
+      Timetable
+    </a>
+    <a class="item" routerLink="/lecture-add" routerLinkActive="active">
+      Add
+    </a>
+  </div>
+  <router-outlet></router-outlet>
+</div>

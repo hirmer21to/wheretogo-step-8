@@ -1,0 +1,17 @@
+<div style="margin: 30px;">
+    <div *ngIf="nextLecture" class="ui info message" style="width: 50%; margin-left: 25%">
+        <div class="header">
+            You need to be in
+        </div>
+        <div class="header">
+            {{nextLecture.building}}/{{nextLecture.floor}}.{{nextLecture.room}}
+        </div>
+        <div style="text-align: center; list-style-type: none;" class="list">
+            <p>At {{nextLecture.day}}, {{nextLecture.time.hours}}:{{nextLecture.time.minutes}}</p>
+            <p>For {{nextLecture.name}}</p>
+        </div>
+    </div>
+    <div *ngIf="!nextLecture" class="ui info message" style="width: 50%; margin-left: 25%">
+        No events today!
+    </div>
+</div>

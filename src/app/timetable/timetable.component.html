@@ -1,0 +1,21 @@
+<div style="margin-top: 15px"></div>
+<h2 class="ui header">Timetable:</h2>
+
+<div *ngIf="lectures">
+  <button class="ui primary button" routerLink="/lecture-add">Add Lecture</button>
+  <button class="ui button" (click)="deleteAll()" *ngIf="lectures.length>0">Delete All</button>
+
+
+  <div *ngIf="lectures.length>0" style="padding: 15px;">
+    <div class="ui middle aligned divided list">
+      <div *ngFor="let l of lectures" class="item">
+        <a class="app-lecture-item item" [lecture]="l" routerLink="/lecture-details/{{l.id}}" style="margin: 10px; padding:10px"></a>
+        <button (click)="delete(l)" class="ui button">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="lectures.length==0" style="padding: 15px;">
+    <p>No Items in the Timetable!</p>
+  </div>
+</div>
