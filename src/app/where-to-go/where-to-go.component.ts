@@ -11,8 +11,8 @@ export class WhereToGoComponent implements OnInit {
 
   constructor(private lectureService: LectureService) { }
 
-  lectures: Lecture[];
-  nextLecture: Lecture;
+  lectures: Lecture[] = [];
+  nextLecture: Lecture = {id: 0, name:'', room:'', day:'', time: {hours: 0, minutes: 0}, building:'', floor:''};
   localTime: Date = new Date();
   isThereANextLecture: Boolean = false;
   tempLecture: Lecture = {

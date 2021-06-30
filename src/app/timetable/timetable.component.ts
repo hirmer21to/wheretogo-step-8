@@ -8,7 +8,7 @@ import { LectureService } from '../shared/lecture.service';
   styles: []
 })
 export class TimetableComponent implements OnInit {
-  lectures: Lecture[];
+  lectures: Lecture[] = [];
 
   constructor(private lectureService: LectureService) { }
 

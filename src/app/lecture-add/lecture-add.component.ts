@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   styles: []
 })
 export class LectureAddComponent implements OnInit {
-  lectures: Lecture[];
+  lectures: Lecture[] = [];
   fieldsEmpty: Boolean = false;
 
   constructor(
