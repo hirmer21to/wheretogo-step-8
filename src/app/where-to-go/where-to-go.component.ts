@@ -12,7 +12,7 @@ export class WhereToGoComponent implements OnInit {
   constructor(private lectureService: LectureService) { }
 
   lectures: Lecture[] = [];
-  nextLecture: Lecture = {id: 0, name:'', room:'', day:'', time: {hours: 0, minutes: 0}, building:'', floor:''};
+  nextLecture: Lecture | undefined;
   localTime: Date = new Date();
   isThereANextLecture: Boolean = false;
   tempLecture: Lecture = {

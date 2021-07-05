@@ -15,26 +15,45 @@ export class LectureAddComponent implements OnInit {
   constructor(
     private lectureService: LectureService,
     private location: Location
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.getLectures();
   }
 
   getLectures(): void {
-    this.lectureService.getLectures()
-      .subscribe(lectures => this.lectures = lectures);
+    this.lectureService
+      .getLectures()
+      .subscribe(lectures => (this.lectures = lectures));
   }
 
-  add(name: string, building: string,
-    floor: string, room: string, day: string, hours: number, minutes: number,
-    department?: string): void {
-    let time = { hours, minutes };
+  add(
+    name: string,
+    building: string,
+    floor: string,
+    room: string,
+    day: string,
+    hours: string,
+    minutes: string,
+    department?: string
+  ): void {
+    let hoursInt = parseInt(hours);
+    let minutesInt = parseInt(minutes);
+    let time = { hours: hoursInt, minutes: minutesInt };
     if (!name || !room || !day || !time || !building || !floor) {
       this.fieldsEmpty = true;
       return;
     }
-    this.lectureService.addLecture({ name, building, floor, room, day, time, department } as Lecture)
+    this.lectureService
+      .addLecture({
+        name,
+        building,
+        floor,
+        room,
+        day,
+        time,
+        department
+      } as Lecture)
       .subscribe(lecture => {
         this.lectures.push(lecture);
         this.goBack();
@@ -44,5 +63,4 @@ export class LectureAddComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
 }
